@@ -22,6 +22,23 @@ def print_dict_as_yaml_md(data_dict):
 
 import pytest
 import logging
+
+# def yaml_dump_opts(data:dict,default_flow_style=None,sort_keys=False, indent=4,**kwargs):
+def yaml_dump_opts(data:dict,default_flow_style=None,indent=4,**kwargs):
+    # yaml.safe_dump(data, **kwargs)
+    # logging.warning(type(kwargs))
+    # logging.warning(locals())
+    d_locals = locals()
+    l_locals = list(d_locals.items())
+    _kwargs = l_locals.pop() # kwargs tuple
+    logging.warning(_kwargs)
+    # tuples..
+    # l_locals = d_locals.items()
+    # kwargs = l_locals.pop() # should check if it
+    logging.warning(l_locals)
+    logging.warning(kwargs)
+
+    return yaml.safe_dump(d_locals) # this syntax doesnt work
 def print_dict_as_yaml_md_opts(data_dict,default_flow_style=None,sort_keys=False, indent=4, **kwargs):
     # learning the struct
     kwargs["default_flow_style"] = default_flow_style
@@ -52,5 +69,7 @@ def test_opts():
     """
     d_yaml = yaml.safe_load(s_yaml)
     # print_dict_as_yaml_md_opts(d_yaml)
-    print_dict_as_yaml_md_opts(d_yaml,default_flow_style=False)
+    # out = yaml_dump_opts(d_yaml,default_flow_style=False,sort_keys=False)
+    out = yaml_dump_opts(dict(a='A'),default_flow_style=False,sort_keys=False)
+    # logging.warning(out)
 
