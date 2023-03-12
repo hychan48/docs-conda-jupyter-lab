@@ -137,6 +137,8 @@ jupyter lab
 conda install -c "conda-forge/label/main" nodejs
 npm install -g ijavascript
 ijsinstall
+## https://github.com/pyscript/pyscript
+#pyscript chrome basic python exec?
 ```
 * javascript kernel
 * https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
