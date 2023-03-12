@@ -5,6 +5,7 @@
   * and sometimes more stable than brew
 ## V0 Steps
 1. Install python3 / miniconda / anaconda
+   * Mamba - same-same but much faster apparently
 2. init conda env
 3. Poetry
 
@@ -16,6 +17,7 @@ conda env export > environment.yml
 
 
 # Conda Notes From Tutorial
+* there's also mamba
 ```bash
 # https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 conda create --name docs-conda-jupyter-lab
