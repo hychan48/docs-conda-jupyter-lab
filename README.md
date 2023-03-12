@@ -33,7 +33,8 @@ conda env export > .\old_env\environment_v1.yml
 * there's also mamba
 ```bash
 # https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-conda create --name docs-conda-jupyter-lab
+#conda create --name docs-conda-jupyter-lab
+conda activate ~\miniconda3\envs\docs-conda-jupyter-lab
 # defaults to ~/miniconda3\envs\docs-conda-jupyter-lab
 # for project local... 
 # conda create --prefix ./envs jupyterlab=3.2 matplotlib=3.5 numpy=1.21
@@ -56,10 +57,19 @@ conda env create -f environment.yml # creates the env
 
 # Will init shell on all default powershell (base)
 conda init powershell
+#$PROFILE|Format-List -Force
+# modifies profile.ps1
 
 conda config --set auto_activate_base false
+mamba config --set auto_activate_base false
 conda config --set auto_activate_base true
 
+```
+
+## Revisions
+```bash
+conda list --revisions
+conda install --revision 4
 ```
 
 # Version Info
