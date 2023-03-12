@@ -65,4 +65,28 @@ poetry.lock = yarn.lock / package-lock.json
 ---
 
 # Poetry Tutorial
-* todo
+```bash
+# https://python-poetry.org/docs/basic-usage/
+# pre-existing project like ours:
+poetry init
+
+poetry add pyyaml
+
+poetry add pyyaml --dev
+poetry add pyyaml -D
+
+poetry remove pyyaml
+
+# Wheel Creation
+poetry build
+
+# default is ther project name in snake case
+# might need to change the default location
+packages = [
+    { include = "my_package" },
+    { include = "extra_package/**/*.py" },
+]
+
+# .bash_completion support
+
+```
