@@ -6,7 +6,6 @@ from IPython.display import Markdown, display
 def print_md(string):
     display(Markdown(string))
 
-
 def print_yaml_md(yaml_dump_data):
     print_md(f"""
 ```yaml
