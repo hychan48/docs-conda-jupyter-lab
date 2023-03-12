@@ -160,3 +160,5 @@ cd ~\mambaforge\Library\bin
 where.exe conda
 # should point to mambaforge
 ```
+
+# Use conda to create pypy / swap env
