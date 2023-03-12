@@ -10,9 +10,14 @@ repository = "https://github.com/hychan48/docs-conda-jupyter-lab"
 [tool.poetry.dependencies]
 python = "^3.10"
 PyYAML = "^6.0"
+pytest = "^7.2.2"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+log_cli = "True"
+
