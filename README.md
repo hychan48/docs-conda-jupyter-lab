@@ -21,7 +21,7 @@ conda install -c "conda-forge/label/main" poetry
 
 # havent installed yetyet:
 conda install jupytext -c conda-forge
-
+#jupyter nbextension enable --py jupytext
 
 conda env export > .\old_env\environment.yml
 conda env export --from-history > environment.yml
@@ -108,7 +108,21 @@ packages = [
 
 
 # Jupyter Lab
+* ServerApp vs LabApp
+* don't think i need jupytext tbh
+* it's for exporting notebooks as markdown or python scripts
 ```bash
 jupyter lab
 
 ```
+
+# NodeJS Inside of Jupyter Notebook
+```bash
+conda install -c "conda-forge/label/main" nodejs
+npm install -g ijavascript
+ijsinstall
+```
+* javascript kernel
+* https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
+* https://github.com/yunabe/tslab
+* https://github.com/n-riesco/ijavascript
