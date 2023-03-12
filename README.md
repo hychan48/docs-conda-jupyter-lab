@@ -9,10 +9,14 @@
 2. init conda env
 3. Poetry
 
+
+# Export Conda Env to yml
 ```bash
 # https://anaconda.org/conda-forge/poetry
 conda install -c "conda-forge/label/main" poetry
-conda env export > environment.yml
+conda env export > .\old_env\environment.yml
+conda env export --from-history > environment.yml
+conda env export > .\old_env\environment_v1.yml
 ```
 
 
@@ -90,5 +94,12 @@ packages = [
 ]
 
 # .bash_completion support
+
+```
+
+
+# Jupyter Lab
+```bash
+jupyter lab
 
 ```
