@@ -51,8 +51,14 @@ conda info --envs
 conda env create -f environment.yml # creates the env 
 
 
+# use poetry instead...
+# conda install --file requirements.txt
 
-conda install --file requirements.txt
+# Will init shell on all default powershell (base)
+conda init powershell
+
+conda config --set auto_activate_base false
+conda config --set auto_activate_base true
 
 ```
 
@@ -126,3 +132,19 @@ ijsinstall
 * https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
 * https://github.com/yunabe/tslab
 * https://github.com/n-riesco/ijavascript
+
+# Mamba
+* mamba
+  * comes with mamba
+* micromamba 
+  * doesnt come with python
+```bash
+# seems like once you install 
+cd ~\mambaforge\Library\bin
+.\mamba.bat init powershell # not sure if even needed...
+.\mamba.bat activate # not sure if even needed...
+
+# to verify
+where.exe conda
+# should point to mambaforge
+```
