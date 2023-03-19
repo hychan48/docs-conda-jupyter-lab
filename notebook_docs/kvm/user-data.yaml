@@ -1,0 +1,29 @@
+#cloud-config
+# For Default user / comment out to be secure
+username: ubuntu
+password: ubuntu
+chpasswd: { expire: False }
+ssh_pwauth: True
+# https://cloudinit.readthedocs.io/en/latest/reference/modules.html#set-hostname
+#hostname: hal9000 # this should be set in the metadata.yaml. so it shows up for kvm
+#fqdn: "hal9000" # or hal9000.abc.com
+users:
+  - default
+  - name: jason
+    gecos: jason
+    plain_text_passwd: jason
+    groups: users, admin, sudo
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false # default true.. so false unlocks
+    ssh_import_id:
+    #   - lp:hychan48
+      - gh:hychan48
+
+    ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDrzo/7ugosBp0gkWkm4VQRTURf0y72Zyl5tSSe3BtybDd4s9wQxNPHct4vVR96Nm8RqDYjV74DZEZ/3HfLRltCiFMwGCnUeKkKJ81q3qiDpTOpdk1nv34avK9YDInfg8E7jIwillcxXHqqLvAAiTTerdqJcYoSuH3rnahVpYsdBKvM405BB1xsbzvrNeWW04lNuRBvBvB5drdqJiMQn9K7nkqplt/FmQfWRZ7B70uSA75rcfRz3rGzOqIgqz/Y5W4PlS6fYC/Xc33ttOKSe9Pho+fTIxWKqp2Br52B0FGk3or8hyuqkDr/9nKz7AVThhVC2tSMKrVgJn0c2e4OW+I8lVolbk9a6Iwam6XtqRXgLF4FuzZ0teEcfHDGBtg5EpxtnTp/eXaYq0NKqXNwLQOZZQlxAZdSJg1r/gL5JTObqtxjKO1HgGL9RN58tCSEWNq4AQf3bEXBsggiczpopcAUxZRzHFXtqpscU+MFl93Kddal5cNRbnT7i/qi/dV0JDU= jason@kvm
+
+# if we want root user:
+disable_root: false
+
+# todo add ssh permit root etc.
