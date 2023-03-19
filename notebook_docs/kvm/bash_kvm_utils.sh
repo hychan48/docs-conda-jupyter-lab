@@ -1,6 +1,10 @@
 # bash alias / functions
 # maybe look into bash completion as well?
-
+# exec bash -l
+# restarts bash
+alias jc_vkvm_net_dhcp_leases_default="virsh net-dhcp-leases default"
+# unalias
+# unset -f fnname
 
 res___get_kvm_ip=''
 __get_kvm_ip () {
@@ -8,7 +12,7 @@ __get_kvm_ip () {
   res___get_kvm_ip=$(virsh domifaddr "$vmn" | awk '/ipv4/ {print $4}' | awk -F'/' '{print $1}')
   return 0
 }
-jc_kvm_debug_guest () {
+jc_vkvm_debug_guest () {
   local vmn=${1:-ub1}
   echo "--- Lookup Guest: $vmn ---"
   local virsh_list_all=$(virsh list --all)
