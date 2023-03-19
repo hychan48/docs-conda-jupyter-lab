@@ -14,13 +14,13 @@ FILE_NAME=$(basename $URL_TO_DOWNLOAD_IMG) # override if not the same as url
 
 #  /var/lib/libvirt/images #root
 #  ├── /bases
-#  │   ├── # qcow2 will reference this img
+#  │   ├── # qcow will reference this
 #  │   └── ubuntu-20.04-server-cloudimg-amd64.img
 #  └── /qcows
 #      └── /vms-ub
 #          ├── ub1.qcow2
-#          ├── ub2.seed.img
-#          └── ub<n>...
+#          ├── ub2...
+#          └── ub<n>
 # METADATA # this script is generating it... maybe later we can merge them
 ## meta-data.yaml # dont touch my metadata.yaml is for reference
 # user-data.yaml is assumed to be here
@@ -225,24 +225,35 @@ install_vms () {
 
 
 # Main
-
+# this has to be ran:
 check_user_data_schema
-check_range # this has to be ran
+check_range
 
-main_all () {
+main_ub1 () {
   # install_packages # 1.
-#  install_packages
   initialize_folder_structure # 2.
   check_base_img_or_download # 3.
-  # 4. create qcows
-  createqcows
+  # createqcows # 4. create qcows
+  createqcow ub1
+  # install_vms # 5. Install all vms
+  install_vm ub1
+
+}
+main_all () {
+  # validation check called before
+  # install_packages # 1.
+  initialize_folder_structure # 2.
+  check_base_img_or_download # 3.
+
+  createqcows # 4. create qcows
   ##createqcow ub1
   # 5. Install all vms
   install_vms
   ##install_vm ub1
 
 }
-#main_all
+# main_ub1
+#main_all # create 1 2
 print_network # should add static macs?
 #ssh_into_vm ub1
 #dev_delete_images
