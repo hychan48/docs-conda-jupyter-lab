@@ -14,13 +14,13 @@ FILE_NAME=$(basename $URL_TO_DOWNLOAD_IMG) # override if not the same as url
 
 #  /var/lib/libvirt/images #root
 #  ├── /bases
-#  │   ├── # qcow will reference this
+#  │   ├── # qcow2 will reference this img
 #  │   └── ubuntu-20.04-server-cloudimg-amd64.img
 #  └── /qcows
 #      └── /vms-ub
 #          ├── ub1.qcow2
-#          ├── ub2...
-#          └── ub<n>
+#          ├── ub2.seed.img
+#          └── ub<n>...
 # METADATA # this script is generating it... maybe later we can merge them
 ## meta-data.yaml # dont touch my metadata.yaml is for reference
 # user-data.yaml is assumed to be here
