@@ -19,3 +19,11 @@ ssh -F /root/make_hal9000/ssh_config_tests/know_hosts.ssh.config jason@192.168.1
 # host key verification failed?
 #  ssh -vv localhost
 # windows
+
+
+# Generate known_hosts
+ssh-keyscan -t rsa kvm.mshome.net
+ssh-keyscan -t rsa target_name
+kvm.mshome.net,192.168.49.41 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPH5lpPXA50HP1H5OnUb4HcXWA28qZyozEGW0SNNQhVhlqgmz/bdLicfAd5K0AYviiN5IEtgesySXgqwq0iIs+c=
+# copy and paste the sha2 part of the output... can maybe auto do this
+# discovvery complete. paramiko is shit. doesnt look at config file properly
