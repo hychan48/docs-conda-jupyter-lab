@@ -34,10 +34,14 @@ qcows_vms_prefix="$IMG_PATH/qcows/vms-$UB"
 
 # Utils ---------------
 check_user_data_schema () {
+  if ! test user-data.yaml ; then
+    echo "user-data.yaml doesnt exist! exiting..."
+    exit 1
+  fi
   if cloud-init schema --config-file user-data.yaml ; then
     echo "1. Check user-data.yaml"
   else
-    echo "Command failed Check user-data.yaml">2%
+    echo "Command failed Check user-data.yaml" >&2
     exit 1
   fi
 
@@ -252,11 +256,11 @@ main_all () {
   ##install_vm ub1
 
 }
-# main_ub1
+main_ub1
 #main_all # create 1 2
 print_network # should add static macs?
 #ssh_into_vm ub1
-#dev_delete_images
+# dev_delete_images
 
 #
 
