@@ -1,3 +1,11 @@
+# old
+# Host 192.168.122.*
+# #    HostName kvm.mshome.net
+# #    User jason
+#    IdentityFile ~/.ssh/id_rsa
+#    StrictHostKeyChecking No
+#    UserKnownHostsFile=/dev/null
+
 # USE THIS ONE
 initialize(){
     # sudo apt -f install libvirt-daemon-system virtinst
