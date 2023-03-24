@@ -1,5 +1,5 @@
 #!/bin/bash
-PROJECT_NAME=hello_world
+export PROJECT_NAME=hello_world
 # Install Python 3.10 / 3.11
 # miniforge makes life easier
 # https://github.com/conda-forge/miniforge
@@ -14,23 +14,21 @@ wget -nc "https://github.com/conda-forge/miniforge/releases/latest/download/Mini
 # yes
 # default is ~/miniforge3
 # i think this works:
-bash Miniforge3-$(uname)-$(uname -m).sh <<END
-enter
-q
-yes
-q
-no
-END
-~/miniforge3/bin/conda init bash
+# batch mode.. ignores licence
+bash Miniforge3-$(uname)-$(uname -m).sh -bf
+#~/miniforge3/bin/conda init bash
 # conda config --set auto_activate_base false
 # to disable afterwards
+#exec bash -l setup_project.sh
 exec bash -l
+# can't continue the file... so need to use another file
 # Using pip for now...
 #conda create --name $PROJECT_DIR pip <<< y
-conda create --name $PROJECT_NAME <<< y
-conda activate $PROJECT_NAME
-cd ~/git_repo/$PROJECT_NAME
+# conda create --name $PROJECT_NAME <<< y
+# conda activate $PROJECT_NAME
+# mkdir ~/git_repo/$PROJECT_NAME
+# cd ~/git_repo/$PROJECT_NAME
 #pip install -r requirements
 
 # to remove env
-# conda remove --name sqa-rasa-py --all
+# conda remove --name $PROJECT_NAME --all
