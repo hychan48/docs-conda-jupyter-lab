@@ -128,8 +128,11 @@ packages = [
 * ServerApp vs LabApp
 * don't think i need jupytext tbh
 * it's for exporting notebooks as markdown or python scripts
+* missing configs too?
 ```bash
 jupyter lab
+jupyter lab --NotebookApp.token='your_token'
+
 
 ```
 
