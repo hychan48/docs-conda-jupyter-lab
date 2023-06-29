@@ -12,12 +12,13 @@
 
 # Export Conda Env to yml
 ```bash
-# Initialize from our environment.yml from project dir:
-conda create -f environment.yml
+# Initialize from our environment.yml from project dir: ( might need to change prefix in the yaml to where you want it)
+conda env create -f environment.yml
 
 # manually:
-# https://anaconda.org/conda-forge/poetry
-conda install -c "conda-forge/label/main" poetry
+# https://anaconda.org/conda-forge/poetry # might be better to do so using poetry installer
+conda install -c conda-forge poetry
+
 
 # havent installed yetyet:
 conda install jupytext -c conda-forge
